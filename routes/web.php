@@ -11,40 +11,30 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
 
-Route::get('aiksteles/{city_id?}', function ($city_id){
-    return view('search');
-});
+use Illuminate\Support\Facades\Route;
 
-Route::get('aikstele/{title}', function ($title){
-    return view('court');
-});
+Route::get('/', 'HomeController@showWelcome');
 
-Route::get('apie', function (){
-    return view('about');
-});
+Route::get('aiksteles/{city_id?}', 'SearchController@getSearch');
+Route::get('aikstele/{title}', 'CourtController@getCourt');
+Route::get('apie', 'AboutController@showIndex');
+Route::get('kontaktai', 'ContactController@showIndex');
 
-Route::get('kontaktai', function (){
-    return view('contact');
-});
-
+/*
 Route::group(array('before' => 'auth'), function (){
-
-    Route::get('admin/aiksteles', function (){
-        return view('admin.courts');
-    });
-
-    Route::get('admin/miestai', function (){
-        return view('admin.cities');
-    });
-
-    Route::get('admin/aiksteliu_tipai', function (){
-        return view('admin.court_types');
-    });
-
+    Route::resource('admin/aiksteles', 'AdminCourtsController');
+    Route::resource('admin/miestai', 'AdminCitiesController');
+    Route::resource('admin/aiksteliu_tipai', 'AdminTypesController');
 });
 
-Route::get('catalog', 'CatalogController@showIndex');
+    Kolkas užkomentuojam iki kito TUT
+*/
+
+
+// laikinai čia prieš kita tut kad nebutu authentifikavimo
+Route::group(array(), function (){
+    Route::resource('admin/aiksteles', 'AdminCourtsController');
+    Route::resource('admin/miestai', 'AdminCitiesController');
+    Route::resource('admin/aiksteliu_tipai', 'AdminTypesController');
+});
