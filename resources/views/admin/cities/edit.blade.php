@@ -3,13 +3,19 @@
 @section('content')
 <h2>Miesto redagavimas</h2>
 
-<form action="{{ url('admin/miestai/' . $city->id) }}" method="post">
-<input name="_method" type="hidden" value="PUT">
-{{ csrf_field() }}
+
+	@if($errors->any())
+		@foreach($errors->all() as $error)
+			{{ $error }}<br>
+			@endforeach
+		<br>
+		@endif
+
+	{!! Form::open(array('url' =>'admin/miestai/' . $city->id, 'method' => 'put')) !!}
 	Pavadinimas:
-	<br />
-	<input type="text" name="title" value="{{ $city->title }}" />
-	<br />
-	<input type="submit" value=" Saugoti " />
-</form>
+	<br>
+	{!! Form::text('title',$city->title) !!}
+	<br>
+	{!! Form::submit('Saugoti') !!}
+	{!! Form::close() !!}
 @stop

@@ -3,13 +3,17 @@
 @section('content')
 <h2>Tipo redagavimas</h2>
 
-<form action="{{ url('admin/aiksteliu_tipai/' . $type->id) }}" method="post">
-<input name="_method" type="hidden" value="PUT">
-{{ csrf_field() }}
+	@if($errors->any())
+	@foreach($errors->all() as $error)
+		{{ $error }}<br>
+	@endforeach
+	@endif
+	<br>
+	{!! Form::open(array('url' => 'admin/aiksteliu_tipai/'. $type->id, 'method' => 'put'))  !!}
 	Pavadinimas:
-	<br />
-	<input type="text" name="title" value="{{ $type->title }}" />
-	<br />
-	<input type="submit" value=" Saugoti " />
-</form>
+	<br>
+	{!! Form::text('title', $type->title) !!}
+	<br>
+	{!! Form::submit('Saugoti') !!}
+	{!! Form::close() !!}
 @stop

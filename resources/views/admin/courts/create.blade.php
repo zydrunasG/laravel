@@ -3,36 +3,37 @@
 @section('content')
 <h2>Nauja aikštelė</h2>
 
-<form action="{{ url('admin/aiksteles') }}" method="post">
-{{ csrf_field() }}
+
+	@if($errors->any())
+		@foreach($errors->all() as $error)
+		{{ $error }}<br>
+		@endforeach
+	<br>
+	@endif
+
+	{!! Form::open(array('url' => 'admin/aiksteles')) !!}
 	Pavadinimas:
-	<br />
-	<input type="text" name="title" />
-	<br /><br />
+	<br>
+	{!! Form::text('title') !!}
+	<br><br>
 	Adresas:
-	<br />
-	<input type="text" name="address" />
-	<br /><br />
+	<br>
+	{!! Form::text('address') !!}
+	<br><br>
 	Aprašymas:
-	<br />
-	<textarea name="description"></textarea>
-	<br /><br />
+	{!! Form::textarea('description') !!}
+	<br><br>
 	Tipas:
-	<br />
-	<select name="type_id">
-		@foreach ($types as $type)
-		<option value="{{ $type->id }}">{{ $type->title }}</option>
-		@endforeach
-	</select>
-	<br /><br />
+	<br>
+	{!! Form::select('type_id', $types->pluck('title', 'id'), old('type_id')) !!}
+
+	<br><br>
 	Miestas:
-	<br />
-	<select name="city_id">
-		@foreach ($cities as $city)
-		<option value="{{ $city->id }}">{{ $city->title }}</option>
-		@endforeach
-	</select>
-	<br /><br />
-	<input type="submit" value=" Saugoti " />
-</form>
+	<br>
+	{!! Form::select('city_id', $cities->pluck('title', 'id'), old('city_id')) !!}
+	<br><br>
+	{!! Form::submit('Saugoti') !!}
+
+	{!! Form::close() !!}
+
 @stop

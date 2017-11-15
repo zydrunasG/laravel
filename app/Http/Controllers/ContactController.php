@@ -8,6 +8,6 @@ class ContactController extends Controller
 {
     public function showIndex()
     {
-        return view('contact');
+        return view('contact', array('meta_title' => 'Kontaktai'));
     }
 }

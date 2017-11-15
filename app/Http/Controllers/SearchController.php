@@ -8,6 +8,6 @@ class SearchController extends Controller
 {
     public function getSearch()
     {
-        return view('search');
+        return view('search', array('meta_title' => 'Paieška'));
     }
 }

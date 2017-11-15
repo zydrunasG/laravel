@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use App\Http\Requests\CreateCityRequest;
 use Illuminate\Http\Request;
 
 class AdminCitiesController extends Controller {
@@ -33,12 +34,12 @@ class AdminCitiesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(CreateCityRequest $request)
 	{
-		$city = new City;
-		$city->title = $request->get('title');
-		$city->save();
-		return redirect('admin/miestai');
+        $city = new City;
+        $city->title = $request->input('title');
+        $city->save();
+        return redirect('admin/miestai');
 	}
 
 
@@ -60,10 +61,10 @@ class AdminCitiesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(Request $request, $id)
+	public function update(CreateCityRequest $request, $id)
 	{
 		$city = City::find($id);
-		$city->title = $request->get('title');
+		$city->title = $request->input('title');
 		$city->save();
 		return redirect('admin/miestai');
   	}

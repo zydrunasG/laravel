@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateTypesRequest;
 use App\Type;
 use Illuminate\Http\Request;
 
@@ -33,10 +34,10 @@ class AdminTypesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(CreateTypesRequest $request)
 	{
 		$type = new Type;
-		$type->title = $request->get('title');
+		$type->title = $request->input('title');
 		$type->save();
 		return redirect('admin/aiksteliu_tipai');
 	}

@@ -8,6 +8,6 @@ class AboutController extends Controller
 {
     public function showIndex()
     {
-        return view('about');
+        return view('about', array('meta_title' => 'Apie'));
     }
 }

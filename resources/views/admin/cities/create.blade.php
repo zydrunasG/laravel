@@ -3,12 +3,19 @@
 @section('content')
 <h2>Naujas miestas</h2>
 
-<form action="{{ url('admin/miestai') }}" method="post">
-{{ csrf_field() }}
-	Pavadinimas:
-	<br />
-	<input type="text" name="title" />
-	<br />
-	<input type="submit" value=" Saugoti " />
-</form>
+@if($errors->any())
+	@foreach($errors->all() as $error)
+	{{ $error }}<br>
+	@endforeach
+	<br>
+	@endif
+
+	{!! Form::open(array('url' => 'admin/miestai')) !!}
+    Pavadinimas:
+    <br>
+    {!! Form::text('title', old('title')) !!}
+    <br>
+    {!! Form::submit('Saugoti') !!}
+    {!! Form::close() !!}
+
 @stop

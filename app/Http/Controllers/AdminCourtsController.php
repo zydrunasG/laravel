@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Court;
+use App\Http\Requests\CreateCourtsRequest;
 use App\Type;
 use App\City;
 use Illuminate\Http\Request;
@@ -35,14 +36,14 @@ class AdminCourtsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(CreateCourtsRequest $request)
 	{
 		$court = new Court;
-		$court->title = $request->get('title');
-		$court->address = $request->get('address');
-		$court->description = $request->get('description');
-		$court->type_id = $request->get('type_id');
-		$court->city_id = $request->get('city_id');
+		$court->title = $request->input('title');
+		$court->address = $request->input('address');
+		$court->description = $request->input('description');
+		$court->type_id = $request->input('type_id');
+		$court->city_id = $request->input('city_id');
 		$court->save();
 		return redirect('admin/aiksteles');
 	}
@@ -68,8 +69,7 @@ class AdminCourtsController extends Controller {
 	 */
 	public function edit($id)
 	{
-		return view('admin.courts.edit', 
-			array('court' => Court::find($id), 'types' => Type::all(), 'cities' => City::all()));
+		return view('admin.courts.edit', array('court' => Court::find($id), 'types' => Type::all(), 'cities' => City::all()));
 	}
 
 
@@ -79,14 +79,14 @@ class AdminCourtsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(Request $request, $id)
+	public function update(CreateCourtsRequest $request, $id)
 	{
 		$court = Court::find($id);
-		$court->title = $request->get('title');
-		$court->address = $request->get('address');
-		$court->description = $request->get('description');
-		$court->type_id = $request->get('type_id');
-		$court->city_id = $request->get('city_id');
+		$court->title = $request->input('title');
+		$court->address = $request->input('address');
+		$court->description = $request->input('description');
+		$court->type_id = $request->input('type_id');
+		$court->city_id = $request->input('city_id');
 		$court->save();
 		return redirect('admin/aiksteles');		
 	}
