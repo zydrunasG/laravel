@@ -38,3 +38,8 @@ Route::group(array(), function (){
     Route::resource('admin/miestai', 'AdminCitiesController');
     Route::resource('admin/aiksteliu_tipai', 'AdminTypesController');
 });
+
+// PDF
+Route::get('pdf', 'TestController@getPDF');
+
+Route::get('agent', 'AgentController@index');
