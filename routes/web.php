@@ -21,25 +21,40 @@ Route::get('aikstele/{title}', 'CourtController@getCourt');
 Route::get('apie', 'AboutController@showIndex');
 Route::get('kontaktai', 'ContactController@showIndex');
 
-/*
-Route::group(array('before' => 'auth'), function (){
+
+Route::group(['middleware' => 'auth'], function (){
     Route::resource('admin/aiksteles', 'AdminCourtsController');
     Route::resource('admin/miestai', 'AdminCitiesController');
     Route::resource('admin/aiksteliu_tipai', 'AdminTypesController');
 });
 
-    Kolkas užkomentuojam iki kito TUT
-*/
+
 
 
 // laikinai čia prieš kita tut kad nebutu authentifikavimo
+/*
 Route::group(array(), function (){
     Route::resource('admin/aiksteles', 'AdminCourtsController');
     Route::resource('admin/miestai', 'AdminCitiesController');
     Route::resource('admin/aiksteliu_tipai', 'AdminTypesController');
 });
-
+*/
 // PDF
 Route::get('pdf', 'TestController@getPDF');
 
 Route::get('agent', 'AgentController@index');
+
+// Authentication routes
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login','Auth\LoginController@login');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');  // TUT buvo su post bet neveikia
+
+// Registration routes
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
+
+// Password reset route
+Route::get('password/reset','Auth\ForgotPasswordController@showLinkRequestForm');
+Route::post('password/email', 'Auth\ForgotPasswordControlller@sendResetLinkEmail');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+Route::post('password/reset', 'Auth\ResetPasswordControlller@reset');
