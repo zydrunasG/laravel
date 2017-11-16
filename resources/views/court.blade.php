@@ -1,5 +1,8 @@
 @extends('base')
 
 @section('content')
-    <h2>Aikštelių paieška puslapis</h2>
+    <h2>Aikštelė: {{ $court->title }}</h2>
+    {{ $court->address }}, {{ $court->city->title }}
+    <br><br>
+    <p>{{ $court->descripttion }}</p>
     @stop

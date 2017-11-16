@@ -12,7 +12,6 @@
         <div id="main_menu">
             <ul>
                 <li><a href="{{ url('/') }}">Pagrindinis</a></li>
-                <li><a href="{{ url('aiksteles') }}">Aikštelių paieška</a></li>
                 <li><a href="{{ url('apie') }}">Apie projektą</a></li>
                 <li><a href="{{ url('kontaktai') }}">Kontaktai</a></li>
                 @if(Auth::check())
@@ -22,6 +21,15 @@
                 <li><a href="{{ url('logout') }}">Atsijungti</a></li>
                 @else
                 <li><a href="{{ url('login') }}">Prisijungti</a></li>
+                    @endif
+
+                @if(!Auth::check())
+                    {!! Form::open(array('url' => 'aiksteles')) !!}
+                    Miestas: {!! Form::select('city_id', \App\City::pluck('title', 'id')), Request::get('city_id') !!}
+                    Aikštelės tipas: {!! Form::select('type_id', \App\Type::pluck('title','id')), Request::get('type_id') !!}
+                    Pavadinimas: {!! Form::text('search'), Request::get('search') !!}
+                    {!! Form::submit('Ieškoti') !!}
+                    {!! Form::close() !!}
                     @endif
             </ul>
             <div class="clear"></div>

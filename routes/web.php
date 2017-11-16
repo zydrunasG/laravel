@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@showWelcome');
 
-Route::get('aiksteles/{city_id?}', 'SearchController@getSearch');
+Route::get('aikstele/{court_id}', 'CourtController@getCourt');
+Route::post('aiksteles', 'SearchController@postSearch');
 Route::get('aikstele/{title}', 'CourtController@getCourt');
 Route::get('apie', 'AboutController@showIndex');
 Route::get('kontaktai', 'ContactController@showIndex');
@@ -29,16 +30,6 @@ Route::group(['middleware' => 'auth'], function (){
 });
 
 
-
-
-// laikinai čia prieš kita tut kad nebutu authentifikavimo
-/*
-Route::group(array(), function (){
-    Route::resource('admin/aiksteles', 'AdminCourtsController');
-    Route::resource('admin/miestai', 'AdminCitiesController');
-    Route::resource('admin/aiksteliu_tipai', 'AdminTypesController');
-});
-*/
 // PDF
 Route::get('pdf', 'TestController@getPDF');
 
