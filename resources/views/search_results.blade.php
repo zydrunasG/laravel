@@ -7,6 +7,6 @@
     {{ $court->address }}, {{ $court->city->title }}
     @endforeach
     @else
-    Nerasta aikštelių
+        <h1 class="page-header bg-danger text-center">Nerasta aikštelių!</h1>
     @endif
     @stop

@@ -2,5 +2,5 @@
 
 @section('content')
 
-    <h2>Kontaktų puslapis</h2>
+    <h2 class="page-header text-center">Kontaktų puslapis</h2>
     @stop
