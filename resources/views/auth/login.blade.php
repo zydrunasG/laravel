@@ -5,11 +5,14 @@
     @if($errors->any())
 
         @foreach($errors->all() as $error)
-            <p class="bg-danger">{{ $error }}</p>
+            <p class="bg-danger text-center">{{ $error }}</p>
         @endforeach
 
     @endif
 
+    @if(session('status'))
+     <p class="bg-success text-center">{{  session('status') }}</p>
+     @endif
 <h2 class="page-header text-center">Prisijungimas</h2>
 
 {!! Form::open(['url' => 'login']) !!}

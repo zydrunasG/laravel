@@ -49,3 +49,7 @@ Route::get('password/reset','Auth\ForgotPasswordController@showLinkRequestForm')
 Route::post('password/email', 'Auth\ForgotPasswordControlller@sendResetLinkEmail');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 Route::post('password/reset', 'Auth\ResetPasswordControlller@reset');
+
+// Email verification
+Route::get('verifyEmailFirst', 'Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
+Route::get('verify/{email}/{verifyToken}', 'Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
