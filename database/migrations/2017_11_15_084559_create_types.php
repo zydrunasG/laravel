@@ -16,6 +16,7 @@ class CreateTypes extends Migration
         Schema::create('types', function ($table){
             $table->increments('id');
             $table->string('title', 100);
+            $table->timestamps();
         });
     }
 
@@ -26,6 +27,6 @@ class CreateTypes extends Migration
      */
     public function down()
     {
-        Schema::drop('types');
+        Schema::dropIfExists('types');
     }
 }

@@ -17,19 +17,19 @@ class DatabaseSeeder extends Seeder
 
         Type::create(
             array(
-                'title' => 'lauko aikštelė',
+                'title' => 'Lauko aikštelė',
             )
         );
 
         Type::create(
             array(
-                'title' => 'sporto salė',
+                'title' => 'Sporto salė',
             )
         );
 
         Type::create(
             array(
-                'title' => 'privati aikštelė',
+                'title' => 'Privati aikštelė',
             )
         );
 

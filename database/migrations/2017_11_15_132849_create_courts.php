@@ -13,7 +13,15 @@ class CreateCourts extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('courts', function($table){
+            $table->increments('id');
+            $table->string('title', 100);
+            $table->string('address', 100);
+            $table->text('description');
+            $table->integer('type_id');
+            $table->integer('city_id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +31,6 @@ class CreateCourts extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('courts');
     }
 }
