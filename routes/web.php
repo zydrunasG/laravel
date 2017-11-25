@@ -45,10 +45,17 @@ Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('re
 Route::post('register', 'Auth\RegisterController@register');
 
 // Password reset route
-Route::get('password/reset','Auth\ForgotPasswordController@showLinkRequestForm');
-Route::post('password/email', 'Auth\ForgotPasswordControlller@sendResetLinkEmail');
+/*
+Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
+Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
+Route::post('password/reset', 'Auth\PasswordController@reset');
+*/
+
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
-Route::post('password/reset', 'Auth\ResetPasswordControlller@reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.reset');
+
 
 // Email verification
 Route::get('verifyEmailFirst', 'Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
