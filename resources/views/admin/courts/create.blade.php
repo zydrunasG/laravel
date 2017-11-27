@@ -1,7 +1,7 @@
 @extends('base')
 
 @section('content')
-<h2>Nauja aikštelė</h2>
+<h2 class="page-header text-center">Nauja aikštelė</h2>
 
 
 	@if($errors->any())
@@ -12,27 +12,29 @@
 	@endif
 
 	{!! Form::open(array('url' => 'admin/aiksteles')) !!}
-	Pavadinimas:
-	<br>
-	{!! Form::text('title') !!}
-	<br><br>
-	Adresas:
-	<br>
-	{!! Form::text('address') !!}
-	<br><br>
-	Aprašymas:
-	{!! Form::textarea('description') !!}
-	<br><br>
-	Tipas:
-	<br>
-	{!! Form::select('type_id', $types->pluck('title', 'id'), old('type_id')) !!}
+	<div class="form-group">
+	{!! Form::label('Pavadinimas') !!}
+	{!! Form::text('title', null,['class' => 'form-control']) !!}
+	</div>
+	<div class="form-group">
+	{!! Form::label('Aresas:') !!}
+	{!! Form::text('address', null,['class' => 'form-control']) !!}
+	</div>
+	<div class="form-group">
+	{!! Form::label('Aprašymas:') !!}
+	{!! Form::textarea('description', null,['class' => 'form-control']) !!}
+	</div>
+	<div class="form-group">
+	{!! Form::label('Tipas:') !!}
+	{!! Form::select('type_id', $types->pluck('title', 'id'), old('type_id'), ['class' => 'form-control']) !!}
+	</div>
+	<div class="form-group">
+	{!! Form::label('Miestas:') !!}
+	{!! Form::select('city_id', $cities->pluck('title', 'id'), old('city_id'), ['class' => 'form-control']) !!}
+	</div>
 
-	<br><br>
-	Miestas:
-	<br>
-	{!! Form::select('city_id', $cities->pluck('title', 'id'), old('city_id')) !!}
-	<br><br>
-	{!! Form::submit('Saugoti') !!}
+
+	{!! Form::submit('Saugoti', ['class' => 'btn btn-success']) !!}
 
 	{!! Form::close() !!}
 

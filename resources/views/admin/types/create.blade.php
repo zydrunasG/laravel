@@ -1,7 +1,7 @@
 @extends('base')
 
 @section('content')
-<h2>Naujas tipas</h2>
+<h2 class="page-header text-center">Naujas tipas</h2>
 
 	@if($errors->any())
 		@foreach($errors->all() as $error)
@@ -11,10 +11,10 @@
 		@endif
 
 	{!! Form::open(array('url' => 'admin/aiksteliu_tipai')) !!}
-	Pavadinimas:
-	<br>
-	{!! Form::text('title', old('title')) !!}
-	<br><br>
-	{!! Form::submit('Saugoti') !!}
+	<div class="form-group">
+	{!! Form::label('Pavadinimas') !!}
+	{!! Form::text('title', old('title'), ['class' => 'form-control']) !!}
+	</div>
+	{!! Form::submit('Saugoti', ['class' => 'btn btn-success']) !!}
 	{!! Form::close() !!}
 @stop

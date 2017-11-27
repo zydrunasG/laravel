@@ -1,9 +1,9 @@
 @extends('base')
 
 @section('content')
-<h2>Miestai</h2>
+<h2 class="text-center page-header">Miestai</h2>
 
-<table class="data-table">
+<table class="table table-striped">
 <tr>
 	<th>Miestas</th>
 	<th>Veiksmai</th>
@@ -13,13 +13,13 @@
 	<tr>
 		<td>{{ $city->title }}</td>
 		<td>
-			<a href="{{ url('admin/miestai/' . $city->id . '/edit') }}">Redaguoti</a>
+			<a href="{{ url('admin/miestai/' . $city->id . '/edit') }}"><button class="btn btn-primary">Redaguoti</button></a>
 			<form style="display:inline" 
 				action="{{ url('admin/miestai/' . $city->id) }}" method="post" 
 				onsubmit="return confirm('Ar tikrai?')">
 				<input type="hidden" name="_method" value="DELETE" />
 				{{ csrf_field() }}
-				<input type="submit" value="Trinti" />
+				<input type="submit" value="Trinti" class="btn btn-danger"/>
 			</form>
 		</td>
 	</tr>
@@ -31,5 +31,5 @@
 @endif
 </table>
 <br />
-<a href="{{ url('admin/miestai/create') }}">Naujas miestas</a>
+<a href="{{ url('admin/miestai/create') }}"><button class="btn btn-success">Naujas Miestas</button></a>
 @stop

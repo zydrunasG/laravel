@@ -2,6 +2,7 @@
 <head>
     <title>{{ $meta_title or 'Miestų aikštelės' }}</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jasny-bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sticky.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -63,7 +64,7 @@
 
 <footer class="footer">
     <div class="container">
-        <p class="text-muted"> © {{ date('Y') }} PHPpamokos.lt Visos teisės saugomos</p>
+        <p class="text-muted"> © {{ date('Y') }} Visos teisės saugomos</p>
     </div>
 </footer>
 
@@ -72,5 +73,6 @@
     <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js') }}"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jasny-bootstrap.min.js') }}"></script>
 </body>
 </html>
