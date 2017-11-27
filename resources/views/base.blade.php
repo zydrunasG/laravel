@@ -34,7 +34,6 @@
             <ul class="nav navbar-nav pull-right">
                 <li class="active"><a href="{{ url('/') }}">Pagrindinis</a></li>
                 <li><a href="{{ url('apie') }}">Apie projektą</a></li>
-                <li><a href="{{ url('kontaktai') }}">Kontaktai</a></li>
                 @if(Auth::check())
                     <li><a href="{{ url('admin/aiksteles') }}">Aikštelės</a></li>
                     <li><a href="{{ url('admin/aiksteliu_tipai') }}">Aikštelių tipai</a></li>
