@@ -29,6 +29,9 @@
 </div>
 
 {!! Form::submit('Prisijungti', array('class' => 'btn btn-default')) !!}
+    <a class="btn btn-link" href="{{ route('password.request') }}">
+        Pamiršote slaptažodį?
+    </a>
 {!! Form::close() !!}
 
-@stop
+    @stop
