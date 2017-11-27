@@ -36,3 +36,11 @@
 <a href="{{ url('admin/aiksteles/create') }}"><button class="btn btn-success">Nauja aikštelė</button></a>
 
 @stop
+
+
+@section('js')
+	<script>
+        document.getElementById("li-home").classList.remove("active");
+        document.getElementById("li-aiksteles").classList.add("active");
+	</script>
+@stop

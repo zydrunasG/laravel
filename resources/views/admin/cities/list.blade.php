@@ -33,3 +33,11 @@
 <br />
 <a href="{{ url('admin/miestai/create') }}"><button class="btn btn-success">Naujas Miestas</button></a>
 @stop
+
+
+@section('js')
+	<script>
+        document.getElementById("li-home").classList.remove("active");
+        document.getElementById("li-miestai").classList.add("active");
+	</script>
+@stop

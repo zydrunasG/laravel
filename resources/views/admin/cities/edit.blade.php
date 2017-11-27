@@ -21,3 +21,11 @@
 	{!! Form::submit('Saugoti', ['class' => 'btn btn-success']) !!}
 	{!! Form::close() !!}
 @stop
+
+
+@section('js')
+	<script>
+        document.getElementById("li-home").classList.remove("active");
+        document.getElementById("li-miestai").classList.add("active");
+	</script>
+@stop

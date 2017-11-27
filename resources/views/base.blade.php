@@ -32,16 +32,16 @@
             </div>
 
             <ul class="nav navbar-nav pull-right">
-                <li class="active"><a href="{{ url('/') }}">Pagrindinis</a></li>
-                <li><a href="{{ url('apie') }}">Apie projektą</a></li>
+                <li class="active" id="li-home"><a href="{{ url('/') }}" >Pagrindinis</a></li>
+                <li id="li-apie"><a href="{{ url('apie') }}">Apie projektą</a></li>
                 @if(Auth::check())
-                    <li><a href="{{ url('admin/aiksteles') }}">Aikštelės</a></li>
-                    <li><a href="{{ url('admin/aiksteliu_tipai') }}">Aikštelių tipai</a></li>
-                    <li><a href="{{ url('admin/miestai') }}">Miestai</a></li>
+                    <li id="li-aiksteles"><a href="{{ url('admin/aiksteles') }}">Aikštelės</a></li>
+                    <li id="li-aiksteliu_tipai"><a href="{{ url('admin/aiksteliu_tipai') }}">Aikštelių tipai</a></li>
+                    <li id="li-miestai"><a href="{{ url('admin/miestai') }}">Miestai</a></li>
                     <li><a href="{{ url('logout') }}">Atsijungti</a></li>
                 @else
-                    <li><a href="{{ url('login') }}">Prisijungti</a></li>
-                    <li><a href="{{ url('register') }}">Registruotis</a></li>
+                    <li id="li-login"><a href="{{ url('login') }}">Prisijungti</a></li>
+                    <li id="li-register"><a href="{{ url('register') }}">Registruotis</a></li>
                 @endif
             </ul>
         </div>
@@ -73,5 +73,6 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/jasny-bootstrap.min.js') }}"></script>
+    @yield('js')
 </body>
 </html>

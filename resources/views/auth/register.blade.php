@@ -41,3 +41,12 @@
 
 
     @stop
+
+
+
+@section('js')
+    <script>
+        document.getElementById("li-home").classList.remove("active");
+        document.getElementById("li-register").classList.add("active");
+    </script>
+@stop

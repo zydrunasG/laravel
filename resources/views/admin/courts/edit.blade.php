@@ -34,3 +34,10 @@
 
 	{!! Form::close() !!}
 @stop
+
+@section('js')
+	<script>
+        document.getElementById("li-home").classList.remove("active");
+        document.getElementById("li-aiksteles").classList.add("active");
+	</script>
+@stop

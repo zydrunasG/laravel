@@ -34,3 +34,10 @@
 <br />
 <a href="{{ url('admin/aiksteliu_tipai/create') }}"><button class="btn btn-success">Naujas Tipas</button></a>
 @stop
+
+@section('js')
+	<script>
+        document.getElementById("li-home").classList.remove("active");
+        document.getElementById("li-aiksteliu_tipai").classList.add("active");
+	</script>
+@stop
