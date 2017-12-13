@@ -11,7 +11,7 @@
 		@endif
 
 	{!! Form::open(array('url' => 'admin/aiksteliu_tipai')) !!}
-	<div class="form-group">
+	<div class="form-group" style="font-size: larger;color: black">
 	{!! Form::label('Pavadinimas') !!}
 	{!! Form::text('title', old('title'), ['class' => 'form-control']) !!}
 	</div>

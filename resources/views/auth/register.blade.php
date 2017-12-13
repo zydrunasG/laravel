@@ -14,7 +14,7 @@
 
 
     {!! Form::open(['url' => 'register']) !!}
-
+<div style="color: black;font-size: larger">
     <div class="form-group">
         {!! Form::label('name', 'Vardas:') !!}
         {!! Form::text('name', old('name'), array('class' => 'form-control', 'placeholder' => 'Vardenis')) !!}
@@ -34,9 +34,9 @@
         {!! Form::label('password', 'Pakartokite slaptažodį:') !!}
         {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => '•••••••')) !!}
     </div>
+</div>
 
-
-    {!! Form::submit('Registruotis', array('class' => 'btn btn-default')) !!}
+    {!! Form::submit('Registruotis', array('class' => 'btn btn-success')) !!}
     {!! Form::close() !!}
 
 

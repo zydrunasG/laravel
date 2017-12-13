@@ -1,0 +1,35 @@
+*{
+    font-family: 'Bree Serif', serif;
+
+
+}
+.stroke{
+    -webkit-text-stroke: 1px grey;
+}
+.bg {
+    /* The image used */
+    background-image: url("../img/court.png");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.test{
+
+    background-color: rgba(172, 172, 172, 0.85);
+    border-radius: 15px;
+
+}
+.black{
+    color: black;
+}
+.hoverTable tr:nth-child(n+2):hover {
+    background-color: #86D694;
+}
+

@@ -8,7 +8,7 @@
 		@endforeach
 		<br>
 	@endif
-
+<div style="color: black;font-size: larger">
 	{!! Form::open(array('url' =>'admin/aiksteles/'. $court->id, 'method' => 'put')) !!}
 	<div class="form-group">
 	{!! Form::label('Pavadinimas:') !!}
@@ -33,6 +33,7 @@
 	{!! Form::submit('Saugoti', ['class' => 'btn btn-success']) !!}
 
 	{!! Form::close() !!}
+	</div>
 @stop
 
 @section('js')

@@ -12,7 +12,7 @@
 
 	{!! Form::open(array('url' => 'admin/miestai')) !!}
 
-    <div class="form-group">
+    <div class="form-group"style="color: black;font-size: larger">
 		{!! Form::label('Pavadinimas') !!}
 		{!! Form::text('title', old('title'), ['class' => 'form-control']) !!}
 	</div>

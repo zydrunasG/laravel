@@ -3,7 +3,7 @@
 @section('content')
 <h2 class="text-center page-header">Miestai</h2>
 
-<table class="table table-striped">
+<table class="table">
 <tr>
 	<th>Miestas</th>
 	<th>Veiksmai</th>

@@ -17,7 +17,7 @@
 
 {!! Form::open(['url' => 'login']) !!}
 
-
+<div style="color: black;font-size: larger">
 <div class="form-group">
     {!! Form::label('email', 'El. pašto adresas:') !!}
     {!! Form::email('email', old('email'), array('placeholder' => 'example@site.com', 'class' => 'form-control')) !!}
@@ -28,12 +28,12 @@
     {!! Form::password('password', array('placeholder' => '•••••••', 'class' => 'form-control')) !!}
 </div>
 
-{!! Form::submit('Prisijungti', array('class' => 'btn btn-default')) !!}
+{!! Form::submit('Prisijungti', array('class' => 'btn btn-info ')) !!}
     <a class="btn btn-link" href="{{ route('password.request') }}">
         Pamiršote slaptažodį?
     </a>
 {!! Form::close() !!}
-
+</div>
     @stop
 
 

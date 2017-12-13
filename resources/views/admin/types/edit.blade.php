@@ -11,7 +11,7 @@
 
 	{!! Form::open(array('url' => 'admin/aiksteliu_tipai/'. $type->id, 'method' => 'put'))  !!}
 
-	<div class="form-group">
+	<div class="form-group" style="color: black;font-size: larger">
 		{!! Form::label('Pavadinimas') !!}
 		{!! Form::text('title', $type->title, ['class' => 'form-control']) !!}
 	</div>

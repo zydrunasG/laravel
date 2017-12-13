@@ -3,8 +3,8 @@
 @section('content')
 <h2>Aikštelės</h2>
 
-<table class="table table-striped">
-<tr>
+<table class="table table-bordered">
+<tr style="background-color: white">
 	<th>Pavadinimas</th>
 	<th>Adresas</th>
 	<th>Veiksmai</th>

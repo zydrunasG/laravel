@@ -13,7 +13,7 @@
 
 	{!! Form::open(array('url' =>'admin/miestai/' . $city->id, 'method' => 'put')) !!}
 
-	<div class="form-group">
+	<div class="form-group" style="font-size: larger;color: black">
 		{!! Form::label('Pavadinimas') !!}
 		{!! Form::text('title',$city->title, ['class' => 'form-control']) !!}
 	</div>

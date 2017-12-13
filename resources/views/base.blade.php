@@ -1,16 +1,19 @@
 <html>
 <head>
     <title>{{ $meta_title or 'Miestų aikštelės' }}</title>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/jasny-bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sticky.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/testing.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
-<body>
+<body class="bg ">
 
 
 <nav class="navbar navbar-default navbar-default">
-    <div class="container">
+    <div class="container ">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="icon-bar"></span>
@@ -51,19 +54,19 @@
 
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+<div class="container  test" style="color: white; min-height: 85%;"  >
+    <div class="row" >
+        <div class="col-md-6 col-md-offset-3 ">
             @yield('content')
         </div>
     </div>
 
 </div>
+</div>
 
-
-<footer class="footer">
-    <div class="container">
-        <p class="text-muted"> © {{ date('Y') }} Visos teisės saugomos</p>
+<footer class="footer ">
+    <div class="container ">
+        <p class="text-muted text-center"> © {{ date('Y') }} Visos teisės saugomos</p>
     </div>
 </footer>
 

@@ -3,9 +3,8 @@
 @section('content')
 <h2>Aikštelių tipai</h2>
 
-<table class="table table-striped
-">
-<tr>
+<table class="table table-bordered " >
+<tr style="background-color: white">
 	<th>Tipas</th>
 	<th>Veiksmai</th>
 </tr>
