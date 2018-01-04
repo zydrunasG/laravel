@@ -1,7 +1,7 @@
 @extends('base')
 
 @section('content')
-<h2>Miesto redagavimas</h2>
+<h2 class="text-center page-header">Miesto redagavimas</h2>
 
 
 	@if($errors->any())
@@ -12,10 +12,20 @@
 		@endif
 
 	{!! Form::open(array('url' =>'admin/miestai/' . $city->id, 'method' => 'put')) !!}
-	Pavadinimas:
-	<br>
-	{!! Form::text('title',$city->title) !!}
-	<br>
-	{!! Form::submit('Saugoti') !!}
+
+	<div class="form-group">
+		{!! Form::label('Pavadinimas') !!}
+		{!! Form::text('title',$city->title, ['class' => 'form-control']) !!}
+	</div>
+
+	{!! Form::submit('Saugoti', ['class' => 'btn btn-success']) !!}
 	{!! Form::close() !!}
+@stop
+
+
+@section('js')
+	<script>
+        document.getElementById("li-home").classList.remove("active");
+        document.getElementById("li-miestai").classList.add("active");
+	</script>
 @stop

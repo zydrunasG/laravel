@@ -1,48 +1,78 @@
 <html>
 <head>
-    <title>{{ $meta_title or 'Krepšinio aikštelės' }}</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <title>{{ $meta_title or 'Miestų aikštelės' }}</title>
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jasny-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/sticky.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <div id="wrapper">
-        <div id="header">
-            <a id="logo" href="{{ url('/') }}">KREPŠINIO AIKŠTELĖS</a>
-        </div>
 
-        <div id="main_menu">
-            <ul>
-                <li><a href="{{ url('/') }}">Pagrindinis</a></li>
-                <li><a href="{{ url('apie') }}">Apie projektą</a></li>
-                <li><a href="{{ url('kontaktai') }}">Kontaktai</a></li>
+
+<nav class="navbar navbar-default navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ url('/') }}">Miestų aikštelės</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+
+
+            {!!  Form::open(array('url' => 'aiksteles', 'class' => 'navbar-form navbar-left'))  !!}
+
+            <div class="form-group">
+
+                {!! Form::text('search', old('search'), array('class' => 'form-control', 'placeholder' => 'Ieškoti aišktelių')) !!}
+                {!! Form::submit('Ieškoti', array('class' => 'btn btn-default')) !!}
+                {!! Form::close() !!}
+            </div>
+
+            <ul class="nav navbar-nav pull-right">
+                <li class="active" id="li-home"><a href="{{ url('/') }}" >Pagrindinis</a></li>
+                <li id="li-apie"><a href="{{ url('apie') }}">Apie projektą</a></li>
                 @if(Auth::check())
-                <li><a href="{{ url('admin/aiksteles') }}">Aikštelės</a></li>
-                <li><a href="{{ url('admin/aiksteliu_tipai') }}">Aikštelių tipai</a></li>
-                <li><a href="{{ url('admin/miestai') }}">Miestai</a></li>
-                <li><a href="{{ url('logout') }}">Atsijungti</a></li>
+                    <li id="li-aiksteles"><a href="{{ url('admin/aiksteles') }}">Aikštelės</a></li>
+                    <li id="li-aiksteliu_tipai"><a href="{{ url('admin/aiksteliu_tipai') }}">Aikštelių tipai</a></li>
+                    <li id="li-miestai"><a href="{{ url('admin/miestai') }}">Miestai</a></li>
+                    <li><a href="{{ url('logout') }}">Atsijungti</a></li>
                 @else
-                <li><a href="{{ url('login') }}">Prisijungti</a></li>
-                    @endif
-
-                @if(!Auth::check())
-                    {!! Form::open(array('url' => 'aiksteles')) !!}
-                    Miestas: {!! Form::select('city_id', \App\City::pluck('title', 'id')), Request::get('city_id') !!}
-                    Aikštelės tipas: {!! Form::select('type_id', \App\Type::pluck('title','id')), Request::get('type_id') !!}
-                    Pavadinimas: {!! Form::text('search'), Request::get('search') !!}
-                    {!! Form::submit('Ieškoti') !!}
-                    {!! Form::close() !!}
-                    @endif
+                    <li id="li-login"><a href="{{ url('login') }}">Prisijungti</a></li>
+                    <li id="li-register"><a href="{{ url('register') }}">Registruotis</a></li>
+                @endif
             </ul>
-            <div class="clear"></div>
         </div>
+    </div>
+</nav>
 
-        <div id="content">
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
             @yield('content')
         </div>
+    </div>
 
-        <div id="footer">
-            © {{ date('Y') }} PHPpamokos.lt Visos teisės saugomos
-        </div>
-    </div><!-- end wrapper -->
+</div>
 
+
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted"> © {{ date('Y') }} Visos teisės saugomos</p>
+    </div>
+</footer>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js') }}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jasny-bootstrap.min.js') }}"></script>
+    @yield('js')
 </body>
 </html>

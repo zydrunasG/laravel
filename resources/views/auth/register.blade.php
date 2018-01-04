@@ -1,30 +1,52 @@
-<h2>Registracija</h2>
+@extends('base')
+
+
+@section('content')
+<h2 class="page-header text-center">Registracija</h2>
 
 @if($errors->any())
-    <ul>
+
         @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
+            <p class="bg-danger">{{ $error }}</p>
             @endforeach
-    </ul>
+
     @endif
 
 
     {!! Form::open(['url' => 'register']) !!}
-    Vardas:
-    <br>
-    {!! Form::text('name', old('name')) !!}
-    <br><br>
-    El.pašto adresas
-    <br>
-    {!! Form::email('email', old('email')) !!}
-    <br><br>
-    Slaptažodis:
-    <br>
-    {!! Form::password('password') !!}
-    <br><br>
-    Pakartokite slaptažodį:
-    <br>
-    {!! Form::password('password_confirmation') !!}
-    <br><br>
-    <button type="submit">Registruotis</button>
+
+    <div class="form-group">
+        {!! Form::label('name', 'Vardas:') !!}
+        {!! Form::text('name', old('name'), array('class' => 'form-control', 'placeholder' => 'Vardenis')) !!}
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('email', 'El. pašto adresas:') !!}
+        {!! Form::email('email', old('email'), array('class' => 'form-control', 'placeholder' => 'example@site.com')) !!}
+    </div>
+
+    <div class="form-group">
+    {!! Form::label('password', 'Slaptažodis:') !!}
+    {!! Form::password('password', array('class' => 'form-control', 'placeholder' => '•••••••')) !!}
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('password', 'Pakartokite slaptažodį:') !!}
+        {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => '•••••••')) !!}
+    </div>
+
+
+    {!! Form::submit('Registruotis', array('class' => 'btn btn-default')) !!}
     {!! Form::close() !!}
+
+
+    @stop
+
+
+
+@section('js')
+    <script>
+        document.getElementById("li-home").classList.remove("active");
+        document.getElementById("li-register").classList.add("active");
+    </script>
+@stop
